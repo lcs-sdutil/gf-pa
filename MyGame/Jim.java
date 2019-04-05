@@ -9,11 +9,37 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Jim extends Actor
 {
     /**
-     * Act - do whatever the Jim wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Act - Make Jim move left, right, up and down by using the arrow keys
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        checkKeyPress();
+    }
+    
+    /**
+     * Check whether a keyboard key has been pressed and react if it has.
+     */
+    private void checkKeyPress()
+    {
+        if (Greenfoot.isKeyDown("up")) 
+        {
+            setLocation(getX(), getY()-3);
+        }
+        
+        if (Greenfoot.isKeyDown("down")) 
+        {
+            setLocation(getX(), getY()+3);
+        }
+        
+        if (Greenfoot.isKeyDown("left")) 
+        {
+            move(-3);
+        }
+        
+        if (Greenfoot.isKeyDown("right")) 
+        {
+            move(3);
+        }
+    
+    }
 }
