@@ -15,8 +15,14 @@ public class PolarBear extends Actor
     public void act() 
     {
         checkCollision(); 
-       
+        Hunts();
     }   
+    
+    private void Hunts()
+    {
+        // make 
+        move(1);
+    }
     
     /**
      * Check whether we are touching a Jim if touching remove Jim.

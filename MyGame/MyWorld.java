@@ -19,6 +19,14 @@ public class MyWorld extends World
         super(600, 400, 1); 
         prepare();
     }
+    
+    public void act()
+    {
+        if (Greenfoot.getRandomNumber(100) < 1)
+        {
+              addObject(new PolarBear(), Greenfoot.getRandomNumber(500), Greenfoot.getRandomNumber(500));
+        }
+    }
 
     /**
      * Prepare the world for the start of the program.
