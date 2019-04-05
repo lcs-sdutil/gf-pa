@@ -20,8 +20,16 @@ public class PolarBear extends Actor
     
     private void Hunts()
     {
-        // make 
-        move(1);
+        // make to polarBears move
+        
+        move(Greenfoot.getRandomNumber(1)-1);
+        
+        if (isAtEdge())
+        { 
+            turn(Greenfoot.getRandomNumber(90)-45);
+            
+        }
+        
     }
     
     /**
