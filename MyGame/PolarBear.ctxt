@@ -1,7 +1,10 @@
 #BlueJ class context
 comment0.target=PolarBear
-comment0.text=\n\ Write\ a\ description\ of\ class\ PolarBear\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\n\ The\ PolarBear\ class\ makes\ him\ eat\ Jim\ if\ he\ touches\ him\ \n\ \n\ @author\ (Simon\ Dutil)\ \n\ @version\ (April\ 4th\ 2019)\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\n\ Act\ -\ do\ whatever\ the\ PolarBear\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
-numComments=2
+comment2.params=
+comment2.target=void\ checkCollision()
+comment2.text=\n\ Check\ whether\ we\ are\ touching\ a\ Jim\ if\ touching\ remove\ Jim.\n\ Game\ over\ if\ we\ touch\ Jim.\n
+numComments=3

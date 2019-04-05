@@ -1,10 +1,10 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class PolarBear here.
+ * The PolarBear class makes him eat Jim if he touches him 
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author (Simon Dutil) 
+ * @version (April 4th 2019)
  */
 public class PolarBear extends Actor
 {
@@ -14,6 +14,23 @@ public class PolarBear extends Actor
      */
     public void act() 
     {
-        // Add your action code here.
-    }    
+        checkCollision(); 
+       
+    }   
+    
+    /**
+     * Check whether we are touching a Jim if touching remove Jim.
+     * Game over if we touch Jim.
+     */
+    private void checkCollision()
+    {
+        if (isTouching(Jim.class)) 
+        {
+            
+            removeTouching(Jim.class);
+            Greenfoot.stop();
+        }
+
+        
+     }
 }
