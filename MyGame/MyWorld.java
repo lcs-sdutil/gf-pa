@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class MyWorld extends World
 {
     private Jim jim;
+    private int timer =0;
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -26,6 +27,9 @@ public class MyWorld extends World
         {
               addObject(new PolarBear(), Greenfoot.getRandomNumber(500), Greenfoot.getRandomNumber(500));
         }
+        
+        timer=timer+1;
+        showText("Time: "+timer,100,30);
     }
     
     //public Jim getHero()

@@ -42,6 +42,7 @@ public class PolarBear extends Actor
         {
             
             removeTouching(Jim.class);
+           
             Greenfoot.stop();
         }
 
