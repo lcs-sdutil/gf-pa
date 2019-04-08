@@ -8,6 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class PolarBear extends Actor
 {
+    private int speed;
+    
+    /**
+     * Constructor: Initialise the speed to a somewhat random value.
+     */
+    public PolarBear()
+    {
+        speed = Greenfoot.getRandomNumber(3) + 1;
+    }
+    
     /**
      * Act - do whatever the PolarBear wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -22,7 +32,7 @@ public class PolarBear extends Actor
     {
         // make to polarBears move
         
-        move(Greenfoot.getRandomNumber(1)-1);
+        move(Greenfoot.getRandomNumber(5));
         
         if (isAtEdge())
         { 
