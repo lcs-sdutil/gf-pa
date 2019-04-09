@@ -28,25 +28,25 @@ public class MyWorld extends World
     
      public void act()
     {
-        if (Greenfoot.getRandomNumber(100) < 1)
-        {
-              addObject(new PolarBear(), Greenfoot.getRandomNumber(500), Greenfoot.getRandomNumber(500));
-        }
         
-        timer=timer+1;
-        showText("Time: "+timer,100,30);
-        
+        spaceBarPressed();
         if (showIntro)
         {
             instruction();
+            spaceBarPressed();
         }
-        start();
+        else if (startGame)
+        {
+            time();
+            spondPolarBear();
+        }
+       
     }
     
     /**
      * Show how to play
      */
-    private void start()
+    private void spaceBarPressed()
     {
         if (Greenfoot.isKeyDown("space"))
         {
@@ -54,17 +54,6 @@ public class MyWorld extends World
             hideInstruction();
             startGame();
        }
-    }
-    
-    /**
-     * Show how to play
-     */
-    private void hideInstruction()
-    {
-        showText("", 250, 75);
-        showText("", 250, 225);
-        showText("", 250, 325);
-       
     }
     
     /**
@@ -89,15 +78,44 @@ public class MyWorld extends World
     }
    
     /**
-     * Show how to play
+     * Show text on the screen which tell you how to play 
      */
     private void instruction()
     {
         showText("Polar Bear!", 250, 75);
-        showText("Don't let the Polar Bears catch you!", 250, 225);
+        showText("Don't let the Polar Bears eat you!", 250, 225);
         showText("Press SPACE BAR to begin.", 250, 325);
      }
-
      
+    /**
+     * hide the text on the screen 
+     */
+    private void hideInstruction()
+    {
+        showText("", 250, 75);
+        showText("", 250, 225);
+        showText("", 250, 325);
+       
+    }
+
+    /**
+     * Time on the screen going from zero and up
+     */ 
+    private void time()
+    {
+        timer=timer+1;
+        showText("Time: "+timer,100,30);
+    }
+    
+    /**
+     * spond Polar Bear every 1 second 
+     */ 
+    private void spondPolarBear()
+    {
+      if (Greenfoot.getRandomNumber(100) < 1)
+        {
+              addObject(new PolarBear(), Greenfoot.getRandomNumber(500), Greenfoot.getRandomNumber(500));
+        }  
+    }
     
 }
