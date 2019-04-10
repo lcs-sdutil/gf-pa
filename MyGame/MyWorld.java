@@ -4,12 +4,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * Write a description of class MyWorld here.
  * 
  * @author (Simon Dutil) 
- * @version (a version number or a date)
+ * @version (April 4th 2019)
  */
 public class MyWorld extends World
 {
     private boolean showIntro;
     private boolean startGame;
+    private boolean gameDone;
     private Jim jim;
     private int timer =0;
     /**
@@ -23,6 +24,7 @@ public class MyWorld extends World
         showIntro = true;
         // not ready to start 
         startGame = false;
+        gameDone = true;
         prepare();
     }
     
@@ -40,19 +42,19 @@ public class MyWorld extends World
             time();
             spondPolarBear();
         }
-       
+        endGame();
     }
     
     /**
-     * Show how to play
+     * Presse space bar to start 
      */
     private void spaceBarPressed()
     {
         if (Greenfoot.isKeyDown("space"))
         {
-            showIntro= false;
-            hideInstruction();
             startGame();
+            hideEndGame();
+            
        }
     }
     
@@ -63,7 +65,7 @@ public class MyWorld extends World
     {
         showIntro = false;
         hideInstruction();
-        
+        hideEndGame();
         startGame = true;
     }
      
@@ -74,7 +76,7 @@ public class MyWorld extends World
     private void prepare()
      {
         jim = new Jim();
-        addObject(jim,289,195);
+        addObject(jim,250,250);
     }
    
     /**
@@ -105,6 +107,7 @@ public class MyWorld extends World
     {
         timer=timer+1;
         showText("Time: "+timer,100,30);
+        
     }
     
     /**
@@ -118,4 +121,22 @@ public class MyWorld extends World
         }  
     }
     
+    /**
+     * end game show how to restart..
+     */
+    private void endGame()
+    {
+        if (gameDone)
+        {
+          showText("Press SPACE BAR to play again.",250 , 250);
+        }
+    }
+    
+    /**
+     * hide end game during Game is on and when restarted
+     */
+    private void hideEndGame()
+    {
+        showText("",250 , 250);
+    }
 }
