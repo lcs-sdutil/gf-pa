@@ -28,6 +28,9 @@ public class MyWorld extends World
         prepare();
     }
     
+    /**
+     * Make the methods act 
+     */
      public void act()
     {
         
@@ -56,11 +59,8 @@ public class MyWorld extends World
     {
         if (Greenfoot.isKeyDown("space"))
         {
-            showIntro = true;
-            instruction();
+            // hide intro and start game 
             startGame();
-            
-            
        }
     }
     
@@ -71,7 +71,7 @@ public class MyWorld extends World
     {
         showIntro = false;
         hideInstruction();
-        
+        // gmae is started
         startGame = true;
     }
      
@@ -93,7 +93,7 @@ public class MyWorld extends World
         showText("Polar Bear!", 250, 75);
         showText("Don't let the Polar Bears eat you!", 250, 225);
         showText("Use the arrow keys to move.", 250, 275);
-         showText("Survive until the timer is at 1500", 250, 300);
+        showText("Survive until the timer is at 1500", 250, 300);
         showText("Press SPACE BAR to begin.", 250, 400);
     }
      
@@ -102,6 +102,7 @@ public class MyWorld extends World
      */
     private void hideInstruction()
     {
+        // don't show text 
         showText("", 250, 75);
         showText("", 250, 225);
         showText("", 250, 275);
@@ -111,7 +112,7 @@ public class MyWorld extends World
     }
 
     /**
-     * Time on the screen going from zero and up and end game at 1000
+     * Time on the screen going from zero and up and end game at 1500
      */ 
     private void time()
     {
@@ -120,7 +121,7 @@ public class MyWorld extends World
         // place text top left corner 
         showText("Time: "+timer,100,30);
         
-        // stop when timer at 1500
+        // stop game when timer at 1500
         if (timer == 1500)
             {
                 startGame = false;
@@ -134,16 +135,17 @@ public class MyWorld extends World
      */ 
     private void spondPolarBear()
     {
-      if (Greenfoot.getRandomNumber(100) < 1)
+        //spond polarbears every 1 seconds almost 
+        if (Greenfoot.getRandomNumber(100) < 1)
         {
               addObject(new PolarBear(), Greenfoot.getRandomNumber(500), Greenfoot.getRandomNumber(500));
         }
-         //Make game restart
+        //Make game restart
         if (Greenfoot.isKeyDown("return"))
         {
-         Greenfoot.setWorld(new MyWorld());
-          
-       }
+            //reset the world
+            Greenfoot.setWorld(new MyWorld());
+         }
     }
     
     /**
@@ -159,16 +161,16 @@ public class MyWorld extends World
     }
     
     /**
-     * spond Polar Bear every 1 second 
+     * Retart game and reset game when key R 
      */ 
     private void restart()
     {
       
-         //Make game restart
+        //Make game restart
         if (Greenfoot.isKeyDown("r"))
         {
          Greenfoot.setWorld(new MyWorld());
           
-       }
+        }
     }
 }

@@ -9,6 +9,7 @@ comment2.target=void\ act()
 comment2.text=\n\ Act\ -\ do\ whatever\ the\ PolarBear\ wants\ to\ do.\ This\ method\ is\ called\ whenever\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\n
 comment3.params=
 comment3.target=void\ Hunts()
+comment3.text=\n\ Move\ at\ a\ random\ speed\ and\ when\ it\ touches\ the\ walls\ turn\ away\ \n
 comment4.params=
 comment4.target=void\ checkCollision()
 comment4.text=\n\ Check\ whether\ we\ are\ touching\ a\ Jim\ if\ touching\ remove\ Jim.\n\ Game\ over\ if\ we\ touch\ Jim.\n

@@ -28,18 +28,19 @@ public class PolarBear extends Actor
         Hunts();
     }   
     
+    /**
+     * Move at a random speed and when it touches the walls turn away 
+     */
     private void Hunts()
     {
-        // make to polarBears move
-        
-        move(Greenfoot.getRandomNumber(5));
-        
+        //make to polarBears move
+        move(speed);
+        //trun at edge with a random number 
         if (isAtEdge())
         { 
             turn(Greenfoot.getRandomNumber(90)-45);
             
         }
-        
     }
     
     /**
@@ -48,6 +49,7 @@ public class PolarBear extends Actor
      */
     private void checkCollision()
     {
+        // Remove Jim when it is touching PolarBear
         if (isTouching(Jim.class)) 
         {
             
@@ -55,7 +57,5 @@ public class PolarBear extends Actor
            
             Greenfoot.stop();
         }
-
-        
-     }
+    }
 }
