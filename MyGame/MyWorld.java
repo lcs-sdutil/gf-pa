@@ -10,7 +10,6 @@ public class MyWorld extends World
 {
     private boolean showIntro;
     private boolean startGame;
-    private boolean gameDone;
     private Jim jim;
     private int timer =0;
     /**
@@ -24,7 +23,7 @@ public class MyWorld extends World
         showIntro = true;
         // not ready to start 
         startGame = false;
-        gameDone = true;
+        
         prepare();
     }
     
@@ -41,8 +40,9 @@ public class MyWorld extends World
         {
             time();
             spondPolarBear();
+            
         }
-        endGame();
+        
     }
     
     /**
@@ -52,20 +52,22 @@ public class MyWorld extends World
     {
         if (Greenfoot.isKeyDown("space"))
         {
+            showIntro = true;
+            instruction();
             startGame();
-            hideEndGame();
+            
             
        }
     }
     
     /**
-     * Start game 
+     * Start game and hide Instruction
      */
     private void startGame()
     {
         showIntro = false;
         hideInstruction();
-        hideEndGame();
+        
         startGame = true;
     }
      
@@ -83,10 +85,12 @@ public class MyWorld extends World
      * Show text on the screen which tell you how to play 
      */
     private void instruction()
-    {
+     {
         showText("Polar Bear!", 250, 75);
         showText("Don't let the Polar Bears eat you!", 250, 225);
-        showText("Press SPACE BAR to begin.", 250, 325);
+        showText("Use the arrow keys to move.", 250, 275);
+         showText("Survive until the timer is at 1000", 250, 300);
+        showText("Press SPACE BAR to begin.", 250, 400);
      }
      
     /**
@@ -96,19 +100,27 @@ public class MyWorld extends World
     {
         showText("", 250, 75);
         showText("", 250, 225);
-        showText("", 250, 325);
+        showText("", 250, 275);
+        showText("", 250, 300);
+        showText("", 250, 400);
        
     }
 
     /**
-     * Time on the screen going from zero and up
+     * Time on the screen going from zero and up and end game at 1000
      */ 
     private void time()
     {
         timer=timer+1;
         showText("Time: "+timer,100,30);
         
-    }
+        if (timer == 1000)
+            {
+                startGame = false;
+                endGame();
+                
+            }
+     }
     
     /**
      * spond Polar Bear every 1 second 
@@ -122,21 +134,14 @@ public class MyWorld extends World
     }
     
     /**
-     * end game show how to restart..
+      * end game show that you won the game  
      */
     private void endGame()
     {
-        if (gameDone)
-        {
-          showText("Press SPACE BAR to play again.",250 , 250);
-        }
+        
+          showText("Good job!.",250 , 250);
     }
     
-    /**
-     * hide end game during Game is on and when restarted
-     */
-    private void hideEndGame()
-    {
-        showText("",250 , 250);
-    }
+    
+    
 }
