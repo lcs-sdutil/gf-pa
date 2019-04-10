@@ -12,6 +12,7 @@ public class MyWorld extends World
     private boolean startGame;
     private Jim jim;
     private int timer =0;
+    
     /**
      * Constructor for objects of class MyWorld.
      * 
@@ -23,7 +24,7 @@ public class MyWorld extends World
         showIntro = true;
         // not ready to start 
         startGame = false;
-        
+        // place Jim in the middle of the world 
         prepare();
     }
     
@@ -31,6 +32,7 @@ public class MyWorld extends World
     {
         
         spaceBarPressed();
+        // start game when "space" is press and start time 
         if (showIntro)
         {
             instruction();
@@ -42,7 +44,9 @@ public class MyWorld extends World
             spondPolarBear();
             
         }
-        
+       
+        //Make game restart
+        restart();
     }
     
     /**
@@ -84,14 +88,14 @@ public class MyWorld extends World
     /**
      * Show text on the screen which tell you how to play 
      */
-    private void instruction()
+     private void instruction()
      {
         showText("Polar Bear!", 250, 75);
         showText("Don't let the Polar Bears eat you!", 250, 225);
         showText("Use the arrow keys to move.", 250, 275);
-         showText("Survive until the timer is at 1000", 250, 300);
+         showText("Survive until the timer is at 1500", 250, 300);
         showText("Press SPACE BAR to begin.", 250, 400);
-     }
+    }
      
     /**
      * hide the text on the screen 
@@ -111,16 +115,19 @@ public class MyWorld extends World
      */ 
     private void time()
     {
+        // take timer and add 1 
         timer=timer+1;
+        // place text top left corner 
         showText("Time: "+timer,100,30);
         
-        if (timer == 1000)
+        // stop when timer at 1500
+        if (timer == 1500)
             {
                 startGame = false;
                 endGame();
-                
+                Greenfoot.playSound("goodJob.wav");
             }
-     }
+    }
     
     /**
      * spond Polar Bear every 1 second 
@@ -130,7 +137,13 @@ public class MyWorld extends World
       if (Greenfoot.getRandomNumber(100) < 1)
         {
               addObject(new PolarBear(), Greenfoot.getRandomNumber(500), Greenfoot.getRandomNumber(500));
-        }  
+        }
+         //Make game restart
+        if (Greenfoot.isKeyDown("return"))
+        {
+         Greenfoot.setWorld(new MyWorld());
+          
+       }
     }
     
     /**
@@ -138,10 +151,24 @@ public class MyWorld extends World
      */
     private void endGame()
     {
-        
-          showText("Good job!.",250 , 250);
+        // show text on screen 
+        showText("Good job!.",250 , 250);
+        //show what key to press to restart
+        showText("Press r to restart.",250 , 280);
+         
     }
     
-    
-    
+    /**
+     * spond Polar Bear every 1 second 
+     */ 
+    private void restart()
+    {
+      
+         //Make game restart
+        if (Greenfoot.isKeyDown("r"))
+        {
+         Greenfoot.setWorld(new MyWorld());
+          
+       }
+    }
 }
